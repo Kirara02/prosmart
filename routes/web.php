@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BarangBuktiController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JaksaController;
@@ -19,22 +20,30 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// Dashboard Route
-Route::resource('/', DashboardController::class);
 
-// Jaksa Route
-Route::resource('/jaksa',JaksaController::class);
+// Login Route
+Route::get('/', [AuthController::class, 'index']);
+Route::post('/auth', [AuthController::class, 'auth']);
+Route::post('/logout', [AuthController::class, 'logout']);
 
-// Informasi Barang Bukti Route
-Route::resource('/barang-bukti', BarangBuktiController::class);
+Route::middleware('auth')->group(function(){
 
-// Pengajuan Barang Bukti
-Route::resource('/pengajuan', PengajuanBarangBuktiController::class);
+    // Dashboard Route
+    Route::resource('/dashboard', DashboardController::class);
 
-// Photo Route
-Route::resource('photo', PhotoController::class);
+    // Jaksa Route
+    Route::resource('/jaksa',JaksaController::class);
 
-// Profile
-Route::resource('/pengaturan', PengaturanController::class);
+    // Informasi Barang Bukti Route
+    Route::resource('/barang-bukti', BarangBuktiController::class);
 
+    // Pengajuan Barang Bukti
+    Route::resource('/pengajuan', PengajuanBarangBuktiController::class);
+
+    // Photo Route
+    Route::resource('photo', PhotoController::class);
+
+    // Profile
+    Route::resource('/pengaturan', PengaturanController::class);
+});
 

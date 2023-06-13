@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('pengajuans', function (Blueprint $table) {
             $table->id();
+            $table->timestamp('tgl_pengajuan');
             $table->string('nama_pemohon',50);
-            $table->string('nama_terdakea',50);
+            $table->string('nama_terdakwa',50);
             $table->string('no_handphone',15);
             $table->text('alamat');
             $table->string('kepemilikan');

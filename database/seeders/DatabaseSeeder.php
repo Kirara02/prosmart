@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Jaksa;
 use Illuminate\Database\Seeder;
+use Illuminate\Foundation\Auth\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -27,6 +28,12 @@ class DatabaseSeeder extends Seeder
             [
                 'nama_jaksa' => 'Saeful Huda'
             ]
+        ]);
+
+        User::insert([
+            'name' => 'Anonymous',
+            'email' => 'superadmin@gmail.com',
+            'password' => bcrypt('secret'),
         ]);
     }
 }

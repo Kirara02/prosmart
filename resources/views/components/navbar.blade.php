@@ -43,9 +43,12 @@
                     <div class="dropdown-divider"></div>
                 </li>
                 <li>
-                    <a class="dropdown-item" href="auth-login-cover.html" target="_blank">
-                    <i class="ti ti-logout me-2 ti-sm"></i>
-                    <span class="align-middle">Log Out</span>
+                    <form action="{{ url('/logout') }}" method="POST">
+                        @csrf
+                        <a class="dropdown-item" href="auth-login-cover.html" target="_blank">
+                        <i class="ti ti-logout me-2 ti-sm"></i>
+                        <button type="submit" class="btn align-middle">Log Out</button>
+                    </form>
                     </a>
                 </li>
                 </ul>
