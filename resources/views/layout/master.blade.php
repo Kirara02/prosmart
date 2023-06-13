@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ $title }} | Pro Smart</title>
+    <title>{{ $title }} | ProSmart</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('/') }}assets/img/favicon/favicon.ico" />
@@ -19,7 +19,8 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/fonts.css">
 
     <!-- Icons -->
     <link rel="stylesheet" href="{{ asset('/') }}assets/vendor/fonts/fontawesome.css" />
@@ -47,18 +48,17 @@
     <script src="{{ asset('/') }}assets/js/config.js"></script>
 
 </head>
-<body>
+<body class="font-inter">
 
 
-   <div class="layout-wrapper layout-content-navbar">
+   <div class="layout-wrapper layout-content-navbar bg-white">
         <div class="layout-container">
             @include('components.sidebar')
             <div class="layout-page">
                 @include('components.navbar')
-                <div class="content-wrapper">
+                <div class="content-wrapper bg-white">
                     <div class="container-xxl flex-grow-1 container-p-y">
-
-                        <p>Haiiii</p>
+                        @yield('content')
                     </div>
                 </div>
             </div>

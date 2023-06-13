@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\BarangBuktiController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\JaksaController;
+use App\Http\Controllers\PengajuanBarangBuktiController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +17,17 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// Dashboard Route
+Route::resource('/', DashboardController::class);
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+// Jaksa Route
+Route::resource('/jaksa',JaksaController::class);
+
+// Informasi Barang Bukti Route
+Route::resource('/barang-bukti', BarangBuktiController::class);
+
+// Pengajuan Barang Bukti
+Route::resource('/pengajuan', PengajuanBarangBuktiController::class);
+
+// Profile
+Route::resource('/profile', ProfileController::class);

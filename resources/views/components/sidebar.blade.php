@@ -31,34 +31,39 @@
             />
           </svg>
         </span>
-        <span class="app-brand-text demo menu-text fw-bold">Vuexy</span>
+        <span class="app-brand-text demo menu-text fw-bold">ProSmart</span>
       </a>
     </div>
 
     <ul class="menu-inner mt-4">
-      <li class="menu-item mb-2 ">
-        <a href="app-email.html" class="menu-link border border-dark">
-          <div data-i18n="Email">Dashboard</div>
+      <li class="menu-item mb-2 {{ (request()->is('/') ? 'active' : '') }}">
+        <a href="{{ url('/') }}" class="menu-link border border-dark rounded-0">
+          <div class='text-black'>Dashboard</div>
         </a>
       </li>
-      <li class="menu-item mb-2  ">
-        <a href="app-chat.html" class="menu-link border border-dark">
-          <div data-i18n="Chat">Data Informasi Barang Bukti</div>
+      <li class="menu-item mb-2 {{ (request()->is('jaksa') ? 'active' : '') }}">
+        <a href="{{ url('jaksa') }}" class="menu-link border border-dark rounded-0">
+          <div class='text-black'>Data Jaksa</div>
         </a>
       </li>
-      <li class="menu-item mb-2  ">
-        <a href="app-calendar.html" class="menu-link border border-dark">
-          <div data-i18n="Calendar">Pengajuan Pengambilan Barang Bukti</div>
+      <li class="menu-item mb-2 {{ (request()->is('barang-bukti') ? 'active' : '') }}">
+        <a href="{{ url('barang-bukti') }}" class="menu-link border border-dark rounded-0">
+          <div class='text-black'>Data Informasi Barang Bukti</div>
         </a>
       </li>
-      <li class="menu-item mb-2  ">
-        <a href="app-kanban.html" class="menu-link border border-dark">
-          <div data-i18n="Kanban">Profile</div>
+      <li class="menu-item mb-2 act {{ (request()->is('pengajuan') ? 'active' : '') }}">
+        <a href="{{ url('pengajuan') }}" class="menu-link border border-dark rounded-0">
+          <div class='text-black'>Pengajuan Pengambilan Barang Bukti</div>
         </a>
       </li>
-      <li class="menu-item mb-2  ">
-        <a href="app-kanban.html" class="menu-link border border-dark">
-          <div data-i18n="Kanban">Photo-Photo</div>
+      <li class="menu-item mb-2 {{ (request()->is('profile') ? 'active' : '') }}">
+        <a href="{{ url('profile') }}" class="menu-link border border-dark rounded-0">
+          <div class='text-black'>Profile</div>
+        </a>
+      </li>
+      <li class="menu-item mb-2 {{ (request()->is('photo') ? 'active' : '') }}">
+        <a href="{{ url('/photo') }}" class="menu-link border border-dark rounded-0">
+          <div class='text-black'>Photo-Photo</div>
         </a>
       </li>
     </ul>
