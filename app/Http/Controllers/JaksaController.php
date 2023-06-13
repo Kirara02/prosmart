@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\JaksaRequest;
 use App\Models\Jaksa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,8 +15,8 @@ class JaksaController extends Controller
     public function index()
     {
         $title = 'List Data Jaksa';
-        $jaksa = Jaksa::all();
-        return view('pages.jaksa.index', compact('title','jaksa'));
+        $items = Jaksa::all();
+        return view('pages.jaksa.index', compact('title','items'));
     }
 
     /**
@@ -34,7 +35,7 @@ class JaksaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(JaksaRequest $request)
     {
         try {
             DB::beginTransaction();
@@ -61,17 +62,31 @@ class JaksaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Jaksa $jaksa)
     {
-        //
+        $title = 'Update Jaksa';
+        $action = route('jaksa.update', $jaksa->id);
+        $method = 'PUT';
+
+        return view('pages.jaksa.form', compact('title','action','method','jaksa'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(JaksaRequest $request, Jaksa $jaksa)
     {
-        //
+        try {
+            DB::beginTransaction();
+            $jaksa->update($request->all());
+
+            DB::commit();
+
+            return redirect()->route('jaksa.index')->with('success', 'Data berhasil diubah');
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return back()->with('error', $th->getMessage());
+        }
     }
 
     /**

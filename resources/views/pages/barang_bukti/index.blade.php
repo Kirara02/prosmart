@@ -2,45 +2,48 @@
 @section('content')
     <!-- Basic Layout -->
     <div class="col-xx">
-        <div class="card mb-4 bg-light rounded-1">
+        <div class="card mb-4">
           <div class="card-body">
-            <div class="card-datatable text-nowrap text-black">
-                <div class="d-flex justify-content-end mb-3 ">
-                    <input type="text" class="form-control border border-dark rounded-0 text-black w-25 text-center" placeholder="Search Data Informasi">
-                    <a href="{{ route('barang-bukti.create') }}" class="btn btn-white border border-dark rounded-0 text-black shadow-none"><i class="fa fa-plus-circle text-black me-2"></i>Tambah Data</a>
-                </div>
-                <table class="datatables-ajax table table-borderless border-0">
-                  <thead class="my bg-label-light text-black">
+            <div class="d-flex justify-content-end mb-3 ">
+                <input type="text" class="form-control text-black w-25 me-2 text-center" placeholder="Search Nama Jaksa">
+                <a href="{{ route('barang-bukti.create') }}" class="btn btn-primary shadow-none"><i class="fa fa-plus-circle text-white me-2"></i>Tambah Data</a>
+            </div>
+            <div class="card-datatable table-responsive text-nowrap mt-2">
+                <table class="datatables-ajax table">
+                  <thead>
                     <tr>
-                      <th width="54px">No</th>
-                      <th>Judul</th>
-                      <th>Tanggal Dibuat</th>
+                      <th width="30px">No</th>
+                      <th>No Reg Barang Bukti</th>
+                      <th>Nama Terpidana</th>
+                      <th>Nama Jaksa</th>
+                      <th>Jenis Barang Bukti</th>
+                      <th>No dan Tanggal Keputusan</th>
                       <th>Status</th>
                       <th width="40px">Action</th>
                     </tr>
-                    <tr class="bg-light">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
                   </thead>
-                  <tbody class="bg-label-light text-black">
-                    <tr>
-                        <td>1</td>
-                        <td>Pencurian Motor di Bekasi</td>
-                        <td>Kamis, 05-01-2023</td>
-                        <td>Publish</td>
-                        <td class="text-center">
-                            <a href="{{ route('barang-bukti.edit', 1) }}" class="border-0 text-black">
-                                <i class="fa fa-pen "></i>
-                            </a>
-                            <form id="form-delete" action="{{ route('barang-bukti.destroy',1) }}" method="post" class="d-inline">
-                                @method('delete')
-                                @csrf
-                                <button type="button" class="btn border-0"><i class="fas fa-trash"></i></button>
-                            </form>
-                        </td>
-                    </tr>
+                  <tbody>
+                    @foreach ($items as $item)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $item->no_reg }}</td>
+                            <td>{{ $item->nama_terpidana }}</td>
+                            <td>{{ $item->jaksa->nama_jaksa }}</td>
+                            <td>{{ $item->jenis }}</td>
+                            <td>{{ $item->no_tgl_putusan }}</td>
+                            <td>{{ $item->status }}</td>
+                            <td class="text-center">
+                                <a href="{{ route('barang-bukti.edit', $item->id) }}" class="btn btn-secondary border-0 text-dark">
+                                    <i class="fa fa-pen "></i>
+                                </a>
+                                <form id="form-delete" action="{{ route('barang-bukti.destroy',$item->id) }}" method="post" class="d-inline">
+                                    @method('delete')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger border-0"><i class="fas fa-trash"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

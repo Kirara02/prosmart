@@ -1,6 +1,8 @@
-<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme border border-dark" style="">
+<!-- Menu -->
+
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-      <a href="{{ url('/') }}" class="app-brand-link">
+      <a href="index.html" class="app-brand-link">
         <span class="app-brand-logo demo">
           <svg width="32" height="22" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -31,40 +33,97 @@
             />
           </svg>
         </span>
-        <span class="app-brand-text demo menu-text fw-bold">ProSmart</span>
+        <span class="app-brand-text demo menu-text fw-bold">Vuexy</span>
+      </a>
+
+      <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
+        <i class="ti menu-toggle-icon d-none d-xl-block ti-sm align-middle"></i>
+        <i class="ti ti-x d-block d-xl-none ti-sm align-middle"></i>
       </a>
     </div>
 
-    <ul class="menu-inner mt-4">
-      <li class="menu-item mb-2 {{ (request()->is('/') ? 'active' : '') }}">
-        <a href="{{ url('/') }}" class="menu-link border border-dark rounded-0">
-          <div class='text-black'>Dashboard</div>
+    <div class="menu-inner-shadow"></div>
+
+    <ul class="menu-inner py-1">
+      <li class="menu-item {{ (request()->is('/') ? 'active':'') }}">
+        <a href="{{ url('/') }}" class="menu-link">
+          <i class="menu-icon tf-icons ti ti-dashboard"></i>
+          <div >Dashboard</div>
         </a>
       </li>
-      <li class="menu-item mb-2 {{ (request()->is('jaksa') ? 'active' : '') }}">
-        <a href="{{ url('jaksa') }}" class="menu-link border border-dark rounded-0">
-          <div class='text-black'>Data Jaksa</div>
+      <li class="menu-item {{ request()->is('jaksa') || request()->is('barang-bukti') ? 'active':'' }}">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+          <i class="menu-icon tf-icons ti ti-database"></i>
+          <div>Data Informasi Barang Bukti</div>
+        </a>
+        <ul class="menu-sub">
+          <li class="menu-item {{ request()->is('jaksa/*') || request()->is('jaksa') ? 'active':'' }}">
+            <a href="{{ url('/jaksa') }}" class="menu-link">
+              <div >Data Jaksa</div>
+            </a>
+          </li>
+          <li class="menu-item {{ request()->is('barang-bukti/*') || request()->is('barang-bukti') ? 'active':'' }}">
+            <a href="{{ url('/barang-bukti') }}" class="menu-link">
+              <div >Data Barang Bukti</div>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="menu-item {{ request()->is('pengajuan') || request()->is('pengajuan/*') ? 'active':'' }}">
+        <a href="{{ url('/pengajuan') }}" class="menu-link">
+          <i class="menu-icon tf-icons ti ti-notes"></i>
+          <div >Pengajuan Pengambilan Barang Bukti</div>
         </a>
       </li>
-      <li class="menu-item mb-2 {{ (request()->is('barang-bukti') ? 'active' : '') }}">
-        <a href="{{ url('barang-bukti') }}" class="menu-link border border-dark rounded-0">
-          <div class='text-black'>Data Informasi Barang Bukti</div>
+      <li class="menu-item {{ (request()->is('profile') ? 'active':'') }}">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+          <i class="menu-icon tf-icons ti ti-user"></i>
+          <div>Profile</div>
+        </a>
+        <ul class="menu-sub">
+          <li class="menu-item {{ (request()->is('') ? 'active':'') }}">
+            <a href="{{ url('/') }}" class="menu-link">
+              <div >Doktrin Adhyaksa</div>
+            </a>
+          </li>
+          <li class="menu-item {{ (request()->is('') ? 'active':'') }}">
+            <a href="{{ url('/') }}" class="menu-link">
+              <div >Tugas Pokok & Fungsi</div>
+            </a>
+          </li>
+          <li class="menu-item {{ (request()->is('') ? 'active':'') }}">
+            <a href="{{ url('/') }}" class="menu-link">
+              <div >Visi Misi</div>
+            </a>
+          </li>
+          <li class="menu-item {{ (request()->is('') ? 'active':'') }}">
+            <a href="{{ url('/') }}" class="menu-link">
+              <div >Daftar Pegawai</div>
+            </a>
+          </li>
+          <li class="menu-item {{ (request()->is('') ? 'active':'') }}">
+            <a href="{{ url('/') }}" class="menu-link">
+              <div >Struktur Organisasi</div>
+            </a>
+          </li>
+          <li class="menu-item {{ (request()->is('') ? 'active':'') }}">
+            <a href="{{ url('/') }}" class="menu-link">
+              <div >Kata Sambutan</div>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="menu-item {{ (request()->is('') ? 'active':'') }}">
+        <a href="{{ url('/gallery') }}" class="menu-link">
+          <i class="menu-icon tf-icons ti ti-brand-appgallery"></i>
+          <div >Photo-Photo</div>
         </a>
       </li>
-      <li class="menu-item mb-2 act {{ (request()->is('pengajuan') ? 'active' : '') }}">
-        <a href="{{ url('pengajuan') }}" class="menu-link border border-dark rounded-0">
-          <div class='text-black'>Pengajuan Pengambilan Barang Bukti</div>
-        </a>
-      </li>
-      <li class="menu-item mb-2 {{ (request()->is('profile') ? 'active' : '') }}">
-        <a href="{{ url('profile') }}" class="menu-link border border-dark rounded-0">
-          <div class='text-black'>Profile</div>
-        </a>
-      </li>
-      <li class="menu-item mb-2 {{ (request()->is('photo') ? 'active' : '') }}">
-        <a href="{{ url('/photo') }}" class="menu-link border border-dark rounded-0">
-          <div class='text-black'>Photo-Photo</div>
+      <li class="menu-item {{ request()->is('pengaturan/*') || request()->is('pengaturan') ? 'active':''  }}">
+        <a href="{{ url('/pengaturan') }}" class="menu-link">
+          <i class="menu-icon tf-icons ti ti-settings"></i>
+          <div >Pengaturan</div>
         </a>
       </li>
     </ul>
-</aside>
+  </aside>

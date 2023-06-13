@@ -11,6 +11,6 @@ class BarangBukti extends Model
     protected $guarded = [];
 
     public function jaksa(){
-        return $this->hasOne(Jaksa::class, 'id_jaksa','id');
+        return $this->hasOne(Jaksa::class, 'id','id_jaksa');
     }
 }

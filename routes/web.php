@@ -4,6 +4,8 @@ use App\Http\Controllers\BarangBuktiController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JaksaController;
 use App\Http\Controllers\PengajuanBarangBuktiController;
+use App\Http\Controllers\PengaturanController;
+use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,5 +31,10 @@ Route::resource('/barang-bukti', BarangBuktiController::class);
 // Pengajuan Barang Bukti
 Route::resource('/pengajuan', PengajuanBarangBuktiController::class);
 
+// Photo Route
+Route::resource('photo', PhotoController::class);
+
 // Profile
-Route::resource('/profile', ProfileController::class);
+Route::resource('/pengaturan', PengaturanController::class);
+
+
