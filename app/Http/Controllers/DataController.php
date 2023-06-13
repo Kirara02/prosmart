@@ -13,7 +13,7 @@ class DataController extends Controller
 
         return DataTables::of($data)
         ->addColumn('actions', function ($row) {
-            return '<a href="'.route('jaksa.update', $row->id).'" class="btn btn-secondary border-0 text-dark"><i class="fa fa-pen "></i></a>'.
+            return '<a href="'.route('jaksa.edit', $row->id).'" class="btn btn-secondary border-0 text-dark"><i class="fa fa-pen "></i></a>'.
             '<form id="form-delete" action="'.route('jaksa.destroy', $row->id).'" method="post" class="d-inline">
             '.method_field('DELETE').'
             '.csrf_field().'
@@ -29,7 +29,7 @@ class DataController extends Controller
 
         return DataTables::of($data)
         ->addColumn('actions', function ($row) {
-            return '<a href="'.route('barang-bukti.update', $row->id).'" class="btn btn-secondary border-0 text-dark"><i class="fa fa-pen "></i></a>'.
+            return '<a href="'.route('barang-bukti.edit', $row->id).'" class="btn btn-secondary border-0 text-dark"><i class="fa fa-pen "></i></a>'.
             '<form id="form-delete" action="'.route('barang-bukti.destroy', $row->id).'" method="post" class="d-inline">
             '.method_field('DELETE').'
             '.csrf_field().'
