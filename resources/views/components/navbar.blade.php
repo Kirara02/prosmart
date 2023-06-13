@@ -43,7 +43,7 @@
                     <div class="dropdown-divider"></div>
                 </li>
                 <li>
-                    <form action="{{ url('/logout') }}" method="POST">
+                    <form action="{{ route('logout') }}" method="POST">
                         @csrf
                         <a class="dropdown-item" href="auth-login-cover.html" target="_blank">
                         <i class="ti ti-logout me-2 ti-sm"></i>

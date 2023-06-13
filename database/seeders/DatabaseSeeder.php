@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Jaksa;
+use App\Models\Profile;
 use Illuminate\Database\Seeder;
 use Illuminate\Foundation\Auth\User;
 
@@ -34,6 +35,10 @@ class DatabaseSeeder extends Seeder
             'name' => 'Anonymous',
             'email' => 'superadmin@gmail.com',
             'password' => bcrypt('secret'),
+        ]);
+
+        Profile::create([
+            'name_company'=>'Doktrin Adhyaksa',
         ]);
     }
 }

@@ -41,6 +41,8 @@
     <link rel="stylesheet" href="{{ asset('/') }}assets/vendor/libs/flatpickr/flatpickr.css" />
     <link rel="stylesheet" href="{{ asset('/') }}assets/vendor/libs/select2/select2.css" />
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+
     <!-- Page CSS -->
 
     <!-- Helpers -->
@@ -93,5 +95,50 @@
 
     <!-- Page JS -->
     <script src="{{ asset('/') }}assets/js/form-layouts.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#table-jaksa').DataTable({
+                processing: true,
+                serverSide: true,
+                responsive: true,
+                autoWidth: true,
+                lengthMenu: [
+                    [20, 50, 100, -1],
+                    [20, 50, 100, "All"]
+                ],
+                ajax: "{{ route('data.jaksa') }}",
+                columns: [
+                    { data: 'id', name: 'id' },
+                    { data: 'nama_jaksa', name: 'nama_jaksa' },
+                    { data: 'actions', name: 'actions'}
+                ]
+            });
+
+            $('#table-barang-bukti').DataTable({
+                processing: true,
+                serverSide: true,
+                responsive: true,
+                autoWidth: true,
+                lengthMenu: [
+                    [20, 50, 100, -1],
+                    [20, 50, 100, "All"]
+                ],
+                ajax: "{{ route('data.barang-bukti') }}",
+                columns: [
+                    { data: 'id', name: 'id' },
+                    { data: 'no_reg', name: 'no_reg' },
+                    { data: 'nama_terpidana', name: 'nama_terpidana' },
+                    { data: 'jaksa.nama_jaksa', name: 'jaksa.nama_jaksa' },
+                    { data: 'jenis', name: 'jenis' },
+                    { data: 'no_tgl_putusan', name: 'no_tgl_putusan' },
+                    { data: 'status', name: 'status' },
+                    { data: 'actions', name: 'actions'}
+                ]
+            });
+        });
+    </script>
+
 </body>
 </html>

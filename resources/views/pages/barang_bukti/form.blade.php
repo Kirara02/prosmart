@@ -40,7 +40,7 @@
                             <label class="form-label" for="jaksa">Pilih Jaksa</label>
                             <select name="id_jaksa" id="jaksa" class="select form-select" data-allow-clear="true">
                                 @foreach ($jaksa as $item)
-                                    <option value="{{ $item->id }}" {{ $barangBukti->jaksa->id == $item->id ? 'selected' : ''}} >{{ $item->nama_jaksa }}</option>
+                                    <option value="{{ $item->id }}" {{ $barangBukti->id_jaksa == $item->id ? 'selected' : ''}} >{{ $item->nama_jaksa }}</option>
                                 @endforeach
                             </select>
                             @error('id_jaksa')

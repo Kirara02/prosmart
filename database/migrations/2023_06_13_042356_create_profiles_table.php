@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->text('profile');
-            $table->text('tugas');
-            $table->text('visi_misi');
-            $table->string('image_organisasi');
-            $table->text('kata_sambutan');
+            $table->string('name_company', 50);
+            $table->text('profile')->nullable();
+            $table->text('tugas')->nullable();
+            $table->text('visi_misi')->nullable();
+            $table->string('image_organisasi')->nullable();
+            $table->text('kata_sambutan')->nullable();
             $table->timestamps();
         });
     }
