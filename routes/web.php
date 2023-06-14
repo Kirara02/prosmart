@@ -36,8 +36,8 @@ Route::middleware('auth')->group(function(){
 
     // Profile Route
     Route::controller(ProfileController::class)->group(function(){
-        Route::get('/profile', 'index')->name('profile.index');
-        Route::post('/profile', 'profileCreate')->name('profile.post');
+        Route::get('/profile/doktrin', 'getDoktrin')->name('profile.get.doktrin');
+        Route::post('/profile/doktrin', 'postDoktrin')->name('profile.post.doktrin');
         Route::get('/profile/tugas', 'getTugas')->name('profile.get.tugas');
         Route::post('/profile/tugas', 'postTugas')->name('profile.post.tugas');
         Route::get('/profile/visi-misi', 'getVisiMisi')->name('profile.get.visimisi');

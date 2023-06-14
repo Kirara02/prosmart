@@ -49,6 +49,8 @@
     <script src="{{ asset('/') }}assets/vendor/js/helpers.js"></script>
     <script src="../../assets/vendor/js/template-customizer.js"></script>
     <script src="{{ asset('/') }}assets/js/config.js"></script>
+
+    <script src="https://cdn.tiny.cloud/1/{your-api-key}/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <body>
 
@@ -197,8 +199,18 @@
                 ]
             });
 
+            tinymce.init({
+                selector: '#my-textarea', // Replace with the ID of your textarea element
+                height: 300, // Adjust the height as needed
+                plugins: 'advlist autolink lists link image imagetools charmap print preview',
+                toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            });
+
+
         });
     </script>
+
+
 
 </body>
 </html>

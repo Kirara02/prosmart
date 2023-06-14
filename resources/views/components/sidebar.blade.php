@@ -29,17 +29,17 @@
           <div>Profile</div>
         </a>
         <ul class="menu-sub">
-          <li class="menu-item {{ (request()->is('') ? 'active':'') }}">
-            <a href="{{ route('profile.index') }}" class="menu-link text-white">
+          <li class="menu-item {{ (request()->is('profile/*') ? 'active':'') }}">
+            <a href="{{ route('profile.get.doktrin') }}" class="menu-link text-white">
               <div >Doktrin Adhyaksa</div>
             </a>
           </li>
-          <li class="menu-item {{ (request()->is('') ? 'active':'') }}">
+          <li class="menu-item {{ (request()->is('profile/*') ? 'active':'') }}">
             <a href="{{ route('profile.get.tugas') }}" class="menu-link text-white">
               <div >Tugas Pokok & Fungsi</div>
             </a>
           </li>
-          <li class="menu-item {{ (request()->is('') ? 'active':'') }}">
+          <li class="menu-item {{ (request()->is('profile/*') ? 'active':'') }}">
             <a href="{{ route('profile.get.visimisi') }}" class="menu-link text-white">
               <div >Visi Misi</div>
             </a>
@@ -49,12 +49,12 @@
               <div >Daftar Pegawai</div>
             </a>
           </li> --}}
-          <li class="menu-item {{ (request()->is('') ? 'active':'') }}">
+          <li class="menu-item {{ (request()->is('profile/*') ? 'active':'') }}">
             <a href="{{ route('profile.get.struktur') }}" class="menu-link text-white">
               <div >Struktur Organisasi</div>
             </a>
           </li>
-          <li class="menu-item {{ (request()->is('') ? 'active':'') }}">
+          <li class="menu-item {{ (request()->is('profile/*') ? 'active':'') }}">
             <a href="{{ route('profile.get.sambutan') }}" class="menu-link text-white">
               <div >Kata Sambutan</div>
             </a>
@@ -66,7 +66,7 @@
           <i class="menu-icon tf-icons ti ti-database"></i>
           <div>Data Informasi Barang Bukti</div>
         </a>
-        <ul class="menu-sub"><li class="menu-item {{ (request()->is('') ? 'active':'') }}">
+        <ul class="menu-sub"><li class="menu-item">
           <li class="menu-item {{ request()->is('jaksa/*') || request()->is('jaksa') ? 'active':'' }}">
             <a href="{{ route('jaksa.index') }}" class="menu-link text-white">
               <div >Data Jaksa</div>
