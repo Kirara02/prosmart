@@ -38,6 +38,16 @@ class PengajuanBarangBuktiController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nama_pemohon' => 'required|string',
+            'nama_terdakwa' => 'string',
+            'no_handphone' => 'required|string',
+            'alamat' => 'required|string',
+            'ktp' => 'required|image|mimes:jpeg,jpg,png|max:5120',
+            'kepemilikan.*' => 'required|image|mimes:png,jpg,jpeg|max:5120',
+            'catatan' => 'required|string'
+        ]);
+
 
         $ktp = $request->ktp;
         $imgKtp = $ktp->storeAs('images/ktp', Str::slug($request->nama_pemohon) . '-' . Str::random(6). '.' . $ktp->extension());

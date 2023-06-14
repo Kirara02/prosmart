@@ -10,6 +10,7 @@ class Pengajuan extends Model
 {
     use HasFactory;
 
+    protected $table = 'pengajuan';
     protected $guarded = [];
 
     public function gallery(){

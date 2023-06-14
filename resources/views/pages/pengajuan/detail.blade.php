@@ -10,23 +10,23 @@
                         <p class="mb-1">No Permohonan :</p>
                         <b><p class="ms-5">{{ $data['id'] }}</p></b>
                       </div>
-                      <div class="mb-2 pt-1 d-flex">
+                      <div class="mb-2 pt-1 ">
                         <p class="mb-1">Nama Pemohon :</p>
-                        <b><p class="ms-5">{{ $data->nama_pemohon }}</p></b>
+                        <b><p class="">{{ $data->nama_pemohon }}</p></b>
                      </div>
-                      <div class="mb-3 pt-1 d-flex">
+                      <div class="mb-3 pt-1 ">
                         <p class="mb-1 ">Nama Terdakwa (*jika mengetahui) :</p>
-                        <b><p class="ms-5">{{ $data->nama_terdakwa ?? '' }}</p></b>
+                        <b><p class="">{{ $data->nama_terdakwa ?? '' }}</p></b>
                       </div>
                     </div>
                     <div class="col-xl-6 order-0 order-xl-0">
-                        <div class="mb-3 pt-1 d-flex">
+                        <div class="mb-3 pt-1 ">
                             <p class="mb-1 ">No Hp/Wa :</p>
-                            <b><p class="ms-5">{{ $data->no_handphone ?? '' }}</p></b>
+                            <b><p class="">{{ $data->no_handphone ?? '' }}</p></b>
                         </div>
-                        <div class="mb-3 pt-1 d-flex">
-                            <p class="mb-1 ">Alamat Lengkap :</p>
-                            <b><p class="ms-5">{{ $data->alamat ?? '' }}</p></b>
+                        <div class="mb-3 pt-1 ">
+                            <p class="mb-1">Alamat Lengkap :</p>
+                            <b><p>{{ $data->alamat ?? '' }}</p></b>
                         </div>
                     </div>
                 </div>

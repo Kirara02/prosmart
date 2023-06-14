@@ -26,7 +26,7 @@
                           <div class="col-md-4">
                             <label class="form-label" for="nama_terdakwa">Nama Terdakwa</label>
                             <input
-                            value="{{ $pengajuan->jenis ?? old('jenis') }}"
+                            value="{{ $pengajuan->nama_terdakwa ?? old('nama_terdakwa') }}"
                                 name="nama_terdakwa"
                               type="text"
                               id="nama_terdakwa"

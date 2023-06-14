@@ -24,7 +24,7 @@ class BarangBuktiRequest extends FormRequest
         return [
             'no_reg' => 'required|string',
             'nama_terpidana' => 'required|string',
-            'id_jaksa' => 'required|exists:jaksas,id',
+            'id_jaksa' => 'required|exists:jaksa,id',
             'jenis' => 'required|string',
             'no_tgl_putusan' => 'required|string',
             'status' => 'required|string'

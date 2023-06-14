@@ -9,5 +9,7 @@ class Pengaturan extends Model
 {
     use HasFactory;
 
+    protected $table = 'pengaturan';
+
     protected $guarded = [];
 }

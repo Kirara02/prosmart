@@ -9,5 +9,7 @@ class BuktiGallery extends Model
 {
     use HasFactory;
 
+    protected $table = 'bukti_gallery';
+
     protected $guarded =[];
 }

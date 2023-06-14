@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bukti_galleries', function (Blueprint $table) {
+        Schema::create('bukti_gallery', function (Blueprint $table) {
             $table->id();
             $table->string('image');
-            $table->foreignId('id_pengajuan')->nullable()->constrained('pengajuans');
+            $table->foreignId('id_pengajuan')->nullable()->constrained('pengajuan');
             $table->timestamps();
         });
     }
