@@ -68,7 +68,7 @@
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                           </div>
-
+                          <div>
                           <label class="form-check-label">Status</label>
                           <div class="col mt-2">
                             <div class="form-check form-check-inline">

@@ -14,7 +14,7 @@
     <title>{{ $title }} | ProSmart</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('/') }}assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('/') }}assets/logo/logo_prosmart_kotak.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -110,7 +110,7 @@
                 ],
                 ajax: "{{ route('data.jaksa') }}",
                 columns: [
-                    { data: 'id', name: 'id' },
+                    { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: true },
                     { data: 'nama_jaksa', name: 'nama_jaksa' },
                     { data: 'actions', name: 'actions'}
                 ]
@@ -127,7 +127,7 @@
                 ],
                 ajax: "{{ route('data.barang-bukti') }}",
                 columns: [
-                    { data: 'id', name: 'id' },
+                    { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                     { data: 'no_reg', name: 'no_reg' },
                     { data: 'nama_terpidana', name: 'nama_terpidana' },
                     { data: 'jaksa.nama_jaksa', name: 'jaksa.nama_jaksa' },
@@ -137,6 +137,66 @@
                     { data: 'actions', name: 'actions'}
                 ]
             });
+
+            $('#table-gallery').DataTable({
+                processing: true,
+                serverSide: true,
+                responsive: true,
+                autoWidth: true,
+                lengthMenu: [
+                    [20, 50, 100, -1],
+                    [20, 50, 100, "All"]
+                ],
+                ajax: "{{ route('data.gallery') }}",
+                columns: [
+                    { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
+                    { data: 'judul', name: 'judul' },
+                    { data: 'image', name: 'image' },
+                    { data: 'created_at', name: 'created_at' },
+                    { data: 'actions', name: 'actions'}
+                ]
+            });
+
+            $('#table-pengaturan').DataTable({
+                processing: true,
+                serverSide: true,
+                responsive: true,
+                autoWidth: true,
+                lengthMenu: [
+                    [20, 50, 100, -1],
+                    [20, 50, 100, "All"]
+                ],
+                ajax: "{{ route('data.pengaturan') }}",
+                columns: [
+                    { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
+                    { data: 'deskripsi', name: 'deskripsi' },
+                    { data: 'img_url', name: 'img_url' },
+                    { data: 'actions', name: 'actions'}
+                ]
+            });
+
+            $('#table-pengajuan').DataTable({
+                processing: true,
+                serverSide: true,
+                responsive: true,
+                autoWidth: true,
+                lengthMenu: [
+                    [20, 50, 100, -1],
+                    [20, 50, 100, "All"]
+                ],
+                ajax: "{{ route('data.pengajuan') }}",
+                columns: [
+                    { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
+                    { data: 'tgl_pengajuan', name: 'tgl_pengajuan' },
+                    { data: 'nama_pemohon', name: 'nama_pemohon' },
+                    { data: 'nama_terdakwa', name: 'nama_terdakwa'},
+                    { data: 'no_handphone', name: 'no_handphone'},
+                    { data: 'alamat', name: 'alamat'},
+                    { data: 'catatan', name: 'catatan'},
+                    { data: 'actions', name: 'actions'},
+                ]
+            });
+
         });
     </script>
 

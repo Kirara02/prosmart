@@ -67,6 +67,9 @@ Route::middleware('auth')->group(function(){
     Route::controller(DataController::class)->group(function(){
         Route::get('data/jaksa','getJaksa')->name('data.jaksa');
         Route::get('data/barang-bukti','getBarangBukti')->name('data.barang-bukti');
+        Route::get('data/gallery','getGallery')->name('data.gallery');
+        Route::get('data/pengaturan','getPengaturan')->name('data.pengaturan');
+        Route::get('data/pengajuan','getPengajuan')->name('data.pengajuan');
     });
 });
 

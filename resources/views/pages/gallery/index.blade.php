@@ -6,14 +6,15 @@
         <div class="row">
             <div class="card-datatable table-responsive text-nowrap">
             <div class="d-flex justify-content-end mb-3">
-                <a href="{{ route('pengaturan.create') }}" class="btn btn-primary shadow-none"><i class="fa fa-plus-circle text-white me-2"></i>Tambah Data</a>
+                <a href="{{ route('gallery.create') }}" class="btn btn-primary shadow-none"><i class="fa fa-plus-circle text-white me-2"></i>Tambah Data</a>
             </div>
-            <table id="table-pengaturan" class="table">
+            <table id="table-gallery" class="table">
               <thead>
                 <tr>
                   <th width="54px">No</th>
-                  <th>Deskripsi</th>
+                  <th>Judul</th>
                   <th>Lihat Gambar</th>
+                  <th>Tanggal Dibuat</th>
                   <th width="40px">Action</th>
                 </tr>
               </thead>

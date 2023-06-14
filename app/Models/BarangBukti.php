@@ -13,4 +13,5 @@ class BarangBukti extends Model
     public function jaksa(){
         return $this->hasOne(Jaksa::class, 'id','id_jaksa');
     }
+
 }
