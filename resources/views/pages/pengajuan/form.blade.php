@@ -61,7 +61,7 @@
                             @enderror
                           </div>
                           <div class="col-md-4">
-                            <label class="form-label" for="no_tgl">Bukti catatan</label>
+                            <label class="form-label" for="no_tgl">Bukti KTP</label>
                             <input
                             value="{{ $pengajuan->ktp ?? old('ktp') }}" name="ktp" type="file" id="no_tgl" class="form-control"/>
                             @error('ktp')

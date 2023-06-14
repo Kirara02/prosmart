@@ -50,12 +50,12 @@
     <script src="../../assets/vendor/js/template-customizer.js"></script>
     <script src="{{ asset('/') }}assets/js/config.js"></script>
 
-    <script src="https://cdn.tiny.cloud/1/{your-api-key}/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/a8zube64hm2g9hibvk0novxagjnpi0231rl5sg66bw72i2lu/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <body>
 
 
-   <div class="layout-wrapper layout-content-navbar">
+   <div class="layout-wrapper layout-content-navbar theme-dark">
         <div class="layout-container">
             @include('components.sidebar')
             <div class="layout-page">
@@ -94,7 +94,6 @@
 
     <!-- Main JS -->
     <script src="{{ asset('/') }}assets/js/main.js"></script>
-
     <!-- Page JS -->
     <script src="{{ asset('/') }}assets/js/form-layouts.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>

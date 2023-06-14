@@ -4,13 +4,13 @@
     <div class="card mb-4 rounded-1">
       <div class="card-body">
         <div class="row">
-            <form action="{{ $action }}" method="POST">
+            <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
                 @method($method)
                 @csrf
                 <div class="col-md-9 mb-3">
-                    <label class="form-label" for="nama_jaksa">Nama Jaksa</label>
-                    <input type="text" id="nama_jaksa" class="form-control" name="nama_jaksa" value="{{ $jaksa->nama_jaksa ?? old('nama_jaksa') }}"/>
-                    @error('nama_jaksa')
+                    <label class="form-label" for="image"><h6>Isi Data Struktur Organisasi</h6></label>
+                    <input type="file" class="form-control"  id="image" name="image">
+                    @error('image')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                 </div>

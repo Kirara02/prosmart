@@ -8,9 +8,9 @@
                 @method($method)
                 @csrf
                 <div class="col-md-9 mb-3">
-                    <label class="form-label" for="nama_jaksa">Nama Jaksa</label>
-                    <input type="text" id="nama_jaksa" class="form-control" name="nama_jaksa" value="{{ $jaksa->nama_jaksa ?? old('nama_jaksa') }}"/>
-                    @error('nama_jaksa')
+                    <label class="form-label" for="my-textarea"><h6>Isi Data Visi & Misi</h6></label>
+                    <textarea id="my-textarea" name="visi_misi">{{ $profile->visi_misi }}</textarea>
+                    @error('visi_misi')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                 </div>

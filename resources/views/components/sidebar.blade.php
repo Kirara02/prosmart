@@ -1,6 +1,6 @@
 <!-- Menu -->
 
-<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+<aside id="layout-menu" class="layout-menu menu-vertical bg-menu-theme ">
     <div class="app-brand demo">
       <a href="{{ route('dashboard.index') }}" class="app-brand-link">
         <span class="app-brand-logo">
@@ -29,17 +29,17 @@
           <div>Profile</div>
         </a>
         <ul class="menu-sub">
-          <li class="menu-item {{ (request()->is('profile/*') ? 'active':'') }}">
+          <li class="menu-item {{ (request()->is('profile/doktrin') ? 'active':'') }}">
             <a href="{{ route('profile.get.doktrin') }}" class="menu-link text-white">
               <div >Doktrin Adhyaksa</div>
             </a>
           </li>
-          <li class="menu-item {{ (request()->is('profile/*') ? 'active':'') }}">
+          <li class="menu-item {{ (request()->is('profile/tugas') ? 'active':'') }}">
             <a href="{{ route('profile.get.tugas') }}" class="menu-link text-white">
               <div >Tugas Pokok & Fungsi</div>
             </a>
           </li>
-          <li class="menu-item {{ (request()->is('profile/*') ? 'active':'') }}">
+          <li class="menu-item {{ (request()->is('profile/visi-misi') ? 'active':'') }}">
             <a href="{{ route('profile.get.visimisi') }}" class="menu-link text-white">
               <div >Visi Misi</div>
             </a>
@@ -49,12 +49,12 @@
               <div >Daftar Pegawai</div>
             </a>
           </li> --}}
-          <li class="menu-item {{ (request()->is('profile/*') ? 'active':'') }}">
+          <li class="menu-item {{ (request()->is('profile/struktur-organisasi') ? 'active':'') }}">
             <a href="{{ route('profile.get.struktur') }}" class="menu-link text-white">
               <div >Struktur Organisasi</div>
             </a>
           </li>
-          <li class="menu-item {{ (request()->is('profile/*') ? 'active':'') }}">
+          <li class="menu-item {{ (request()->is('profile/kata-sambutan') ? 'active':'') }}">
             <a href="{{ route('profile.get.sambutan') }}" class="menu-link text-white">
               <div >Kata Sambutan</div>
             </a>

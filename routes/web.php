@@ -37,15 +37,15 @@ Route::middleware('auth')->group(function(){
     // Profile Route
     Route::controller(ProfileController::class)->group(function(){
         Route::get('/profile/doktrin', 'getDoktrin')->name('profile.get.doktrin');
-        Route::post('/profile/doktrin', 'postDoktrin')->name('profile.post.doktrin');
+        Route::put('/profile/doktrin', 'postDoktrin')->name('profile.post.doktrin');
         Route::get('/profile/tugas', 'getTugas')->name('profile.get.tugas');
-        Route::post('/profile/tugas', 'postTugas')->name('profile.post.tugas');
+        Route::put('/profile/tugas', 'postTugas')->name('profile.post.tugas');
         Route::get('/profile/visi-misi', 'getVisiMisi')->name('profile.get.visimisi');
-        Route::post('/profile/visi-misi', 'postVisiMisi')->name('profile.post.visimisi');
+        Route::put('/profile/visi-misi', 'postVisiMisi')->name('profile.post.visimisi');
         Route::get('/profile/struktur-organisasi', 'getStruktur')->name('profile.get.struktur');
-        Route::post('/profile/struktur-organisasi', 'postStruktur')->name('profile.post.struktur');
+        Route::put('/profile/struktur-organisasi', 'postStruktur')->name('profile.post.struktur');
         Route::get('/profile/kata-sambutan', 'getSambutan')->name('profile.get.sambutan');
-        Route::post('/profile/kata-sambutan', 'postSambutan')->name('profile.post.sambutan');
+        Route::put('/profile/kata-sambutan', 'postSambutan')->name('profile.post.sambutan');
 
     });
 
