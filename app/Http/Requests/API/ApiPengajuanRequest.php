@@ -22,7 +22,8 @@ class ApiPengajuanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'tgl_pengajuan'
+            'tgl_pengajuan' => 'required',
+            ''
         ];
     }
 }

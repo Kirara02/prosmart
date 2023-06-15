@@ -10,11 +10,18 @@ use Illuminate\Http\Request;
 class ApiPengaturanController extends Controller
 {
     public function all(){
-        $banner = Pengaturan::first();
+        try {
+            $banner = Pengaturan::all();
 
-        return ResponseFormatter::success(
-            $banner,
-            'Data Berhasil di ambil'
-        );
+            return ResponseFormatter::success(
+                $banner,
+                'Data Berhasil di ambil'
+            );
+        } catch (\Throwable $th) {
+            return ResponseFormatter::error(
+                null,
+                'Data gagal di ambil'
+            );
+        }
     }
 }
