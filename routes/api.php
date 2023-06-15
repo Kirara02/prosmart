@@ -27,5 +27,6 @@ Route::get('jaksa',[ApiJaksaController::class, 'all']);
 Route::get('profile',[ApiProfileController::class,'all']);
 Route::get('gallery',[ApiGalleryController::class,'all']);
 Route::get('terdakwa',[ApiBarangBuktiController::class,'terdakwa']);
+Route::get('barang-bukti',[ApiBarangBuktiController::class,'show']);
 Route::get('banner',[ApiPengaturanController::class,'all']);
 Route::post('pengajuan',[ApiPengajuanController::class,'post']);

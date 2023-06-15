@@ -13,8 +13,16 @@ class ApiProfileController extends Controller
         try {
             $profile = Profile::first();
 
+            $data = [
+                'profile' =>  strip_tags($profile->profile),
+                'tugas' =>  strip_tags($profile->tugas),
+                'visi_misi' =>  strip_tags($profile->visi_misi),
+                'kata_sambutan' =>  strip_tags($profile->kata_sambutan),
+                'struktur_organisasi' =>  strip_tags($profile->image_organisasi),
+            ];
+
             return ResponseFormatter::success(
-                $profile,
+               $data,
                 'Data berhasil diambil'
             );
 
