@@ -10,16 +10,24 @@ use Illuminate\Http\Request;
 class ApiBarangBuktiController extends Controller
 {
     public function terdakwa(){
-        $data = BarangBukti::all();
+        try {
 
-        $terdakwa = [];
-        foreach ($data as $item) {
-            $terdakwa[] = $item->nama_terpidana;
+            $data = BarangBukti::all();
+
+            $terdakwa = [];
+            foreach ($data as $item) {
+                $terdakwa[] = $item->nama_terpidana;
+            }
+
+            return ResponseFormatter::success(
+                $terdakwa,
+                'Data berhasil diambil'
+            );
+        } catch (\Throwable $th) {
+            return ResponseFormatter::error(
+                null,
+                'Data gagal diambil'
+            );
         }
-
-        return ResponseFormatter::success(
-            $terdakwa,
-            'Data berhasil diambil'
-        );
     }
 }
