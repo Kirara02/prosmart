@@ -6,6 +6,7 @@ use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
 use App\Models\BuktiGallery;
 use App\Models\Pengajuan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -32,6 +33,8 @@ class ApiPengajuanController extends Controller
             $imgBukti = $image->storeAs('images/bukti-kepemilikan', Str::slug($request->nama_pemohon) . '-' . Str::random(6) . '.' . $image->extension());
             $insert[$key]['id_pengajuan'] = $data->id;
             $insert[$key]['image'] = $imgBukti;
+            $insert[$key]['created_at'] = Carbon::now();
+            $insert[$key]['updated_at'] = Carbon::now();
         }
 
         BuktiGallery::insert($insert);
