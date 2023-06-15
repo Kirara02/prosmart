@@ -1,6 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\API\ApiBarangBuktiController;
+use App\Http\Controllers\API\ApiGalleryController;
+use App\Http\Controllers\API\ApiJaksaController;
+use App\Http\Controllers\API\ApiProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::get('jaksa',[ApiJaksaController::class, 'all']);
+Route::get('profile',[ApiProfileController::class,'all']);
+Route::get('gallery',[ApiGalleryController::class,'all']);
+Route::get('terdakwa',[ApiBarangBuktiController::class,'terdakwa']);
