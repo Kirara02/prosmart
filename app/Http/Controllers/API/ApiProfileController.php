@@ -28,7 +28,7 @@ class ApiProfileController extends Controller
                 ],
                 [
                     'title' => 'Struktur Organisasi',
-                    'content' => $profile->image_organisasi
+                    'content' => '<span style="font-size:14px"><img alt="" src="' . $profile->image_organisasi . '" style="height:168px; width:300px" /></span>'
                 ],
                 [
                     'title' => 'kata Sambutan',
@@ -44,8 +44,10 @@ class ApiProfileController extends Controller
         } catch (\Throwable $th) {
             return ResponseFormatter::error(
                 null,
-                'Data gagal diambil'
+                'Data gagal diambil'. $th->getMessage(),
             );
         }
     }
 }
+
+
