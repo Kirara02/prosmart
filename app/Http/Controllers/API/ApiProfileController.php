@@ -15,23 +15,23 @@ class ApiProfileController extends Controller
 
             $data = [
                 [
-                    'title' => 'profile',
+                    'title' => 'Doktrin Adhiyaksa',
                     'content' => strip_tags($profile->profile)
                 ],
                 [
-                    'title' => 'tugas',
+                    'title' => 'Tugas Pokok & Fungsi',
                     'content' => strip_tags($profile->tugas)
                 ],
                 [
-                    'title' => 'visi-misi',
+                    'title' => 'Visi Misi',
                     'content' => strip_tags($profile->visi_misi)
                 ],
                 [
-                    'title' => 'struktur organisasi',
+                    'title' => 'Struktur Organisasi',
                     'content' => strip_tags($profile->image_organisasi)
                 ],
                 [
-                    'title' => 'kata sambutan',
+                    'title' => 'kata Sambutan',
                     'content' => strip_tags($profile->kata_sambutan)
                 ],
             ];
