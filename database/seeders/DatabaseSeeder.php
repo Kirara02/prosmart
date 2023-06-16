@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Jaksa;
 use App\Models\Profile;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Foundation\Auth\User;
 
@@ -24,10 +25,14 @@ class DatabaseSeeder extends Seeder
         // ]);
         Jaksa::insert([
             [
-                'nama_jaksa' => 'Muhammad Rifai'
+                'nama_jaksa' => 'Muhammad Rifai',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ],
             [
-                'nama_jaksa' => 'Saeful Huda'
+                'nama_jaksa' => 'Saeful Huda',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ]
         ]);
 
@@ -35,6 +40,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'Anonymous',
             'email' => 'superadmin@gmail.com',
             'password' => bcrypt('secret'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
 
         Profile::create([
