@@ -28,7 +28,7 @@ class ApiProfileController extends Controller
                 ],
                 [
                     'title' => 'Struktur Organisasi',
-                    'content' => '<span style="font-size:14px"><img alt="" src="' . $profile->image_organisasi . '" style="height:168px; width:300px" /></span>'
+                    'content' => '<span style="font-size:14px"><img alt="" src="https://prosmart.zenmultimediacorp.com/storage/' . $profile->image_organisasi . '" style="height:168px; width:300px" /></span>'
                 ],
                 [
                     'title' => 'kata Sambutan',
