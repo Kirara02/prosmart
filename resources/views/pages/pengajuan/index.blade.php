@@ -5,7 +5,7 @@
         <div class="card mb-4">
           <div class="card-body">
             <div class="d-flex justify-content-end mb-3 ">
-                <a href="{{ route('pengajuan.create') }}" class="btn btn-primary shadow-none"><i class="fa fa-plus-circle text-white me-2"></i>Tambah Data</a>
+                {{-- <a href="{{ route('pengajuan.create') }}" class="btn btn-primary shadow-none"><i class="fa fa-plus-circle text-white me-2"></i>Tambah Data</a> --}}
             </div>
             <div class="card-datatable table-responsive text-nowrap mt-2">
                 <table id="table-pengajuan" class="datatables-ajax table">

@@ -20,21 +20,21 @@
             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                 <div class="avatar avatar-online">
-                    <img src="{{ asset('/') }}assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
+                    <img src="{{ asset('/') }}assets/logo/logo_prosmart_kotak.png" alt class="h-auto rounded-circle" />
                 </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                 <li>
-                    <a class="dropdown-item" href="pages-account-settings-account.html">
+                    <a class="dropdown-item" href="{{ url('/dashboard') }}">
                     <div class="d-flex">
                         <div class="flex-shrink-0 me-3">
                         <div class="avatar avatar-online">
-                            <img src="../../assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
+                            <img src="{{ asset('/') }}assets/logo/logo_prosmart_kotak.png" alt class="h-auto rounded-circle" />
                         </div>
                         </div>
                         <div class="flex-grow-1">
-                        <span class="fw-semibold d-block">{{ auth()->user()->name }}</span>
-                        <small class="text-muted">Admin</small>
+                        <span class="fw-semibold d-block">Administrator</span>
+                        <small class="text-muted">admin</small>
                         </div>
                     </div>
                     </a>
@@ -45,7 +45,7 @@
                 <li>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <a class="dropdown-item" href="auth-login-cover.html" target="_blank">
+                        <div class="dropdown-item">
                         <i class="ti ti-logout me-2 ti-sm"></i>
                         <button type="submit" class="btn align-middle">Log Out</button>
                     </form>
