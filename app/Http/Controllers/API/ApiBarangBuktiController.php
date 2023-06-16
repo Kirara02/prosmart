@@ -36,7 +36,7 @@ class ApiBarangBuktiController extends Controller
             $dataJaksa = Jaksa::where('nama_jaksa', $jaksa)->first();
 
             if (!$dataJaksa) {
-                return ResponseFormatter::error(null, 'Data tidak ditemukan');
+                return ResponseFormatter::error(null, 'Data tidak ditemukan', 404);
             }
 
             $data = BarangBukti::with(['jaksa'])->where('nama_terpidana', $terdakwa)
@@ -44,7 +44,7 @@ class ApiBarangBuktiController extends Controller
                 ->get();
 
             if ($data->isEmpty()) {
-                return ResponseFormatter::error(null, 'Data tidak ditemukan');
+                return ResponseFormatter::error(null, 'Data tidak ditemukan',404);
             }
 
             return ResponseFormatter::success($data, 'Data berhasil diambil');
