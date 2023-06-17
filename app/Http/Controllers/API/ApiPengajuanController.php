@@ -7,8 +7,10 @@ use App\Http\Controllers\Controller;
 use App\Models\BuktiGallery;
 use App\Models\Pengajuan;
 use Carbon\Carbon;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ApiPengajuanController extends Controller
@@ -17,9 +19,11 @@ class ApiPengajuanController extends Controller
     {
         try {
             DB::beginTransaction();
+
             $ktp = $request->file('ktp');
             $imgKtp = $ktp->storeAs('images/ktp', Str::slug($request->nama_pemohon) . '-' . Str::random(6) . '.' . $ktp->extension());
 
+            $insert = [];
             $data = Pengajuan::create([
                 'nama_pemohon' => $request->nama_pemohon,
                 'nama_terdakwa' => $request->nama_terdakwa,
@@ -29,9 +33,7 @@ class ApiPengajuanController extends Controller
                 'catatan' => $request->catatan
             ]);
 
-
             $bukti = $request->file('bukti');
-            $insert = [];
             foreach ($bukti as $key=>$image) {
                 $imgBukti = $image->storeAs('images/bukti-kepemilikan', Str::slug($request->nama_pemohon) . '-' . Str::random(6) . '.' . $image->extension());
                 $insert[$key]['id_pengajuan'] = $data->id;
@@ -42,6 +44,7 @@ class ApiPengajuanController extends Controller
 
             BuktiGallery::insert($insert);
             $result = Pengajuan::with(['gallery'])->find($data->id);
+
             DB::commit();
 
             return ResponseFormatter::success(
@@ -50,9 +53,17 @@ class ApiPengajuanController extends Controller
             );
         } catch (\Throwable $th) {
             DB::rollBack();
+
+            if (isset($data)) {
+                Storage::delete($data->ktp);
+                foreach ($bukti as $key=>$image) {
+                    Storage::delete($insert[$key]['image']);
+                }
+            }
+
             return ResponseFormatter::error(
                 null,
-                'Data gagal di upload'
+                'Data gagal diupload'
             );
         }
     }
