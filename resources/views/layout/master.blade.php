@@ -132,7 +132,7 @@
                     { data: 'no_reg', name: 'no_reg' },
                     { data: 'nama_terpidana', name: 'nama_terpidana' },
                     { data: 'jaksa.nama_jaksa', name: 'jaksa.nama_jaksa' },
-                    { data: 'jenis', name: 'jenis' },
+                    { data: 'jenis.barang_bukti', name: 'jenis.barang_bukti' },
                     { data: 'no_tgl_putusan', name: 'no_tgl_putusan' },
                     { data: 'status', name: 'status' },
                     { data: 'actions', name: 'actions'}
@@ -193,7 +193,25 @@
                     { data: 'nama_terdakwa', name: 'nama_terdakwa'},
                     { data: 'no_handphone', name: 'no_handphone'},
                     { data: 'alamat', name: 'alamat'},
+                    { data: 'jenis', name: 'jenis'},
                     { data: 'catatan', name: 'catatan'},
+                    { data: 'actions', name: 'actions'},
+                ]
+            });
+
+            $('#table-jenis').DataTable({
+                processing: true,
+                serverSide: true,
+                responsive: true,
+                autoWidth: true,
+                lengthMenu: [
+                    [20, 50, 100, -1],
+                    [20, 50, 100, "All"]
+                ],
+                ajax: "{{ route('data.jenis') }}",
+                columns: [
+                    { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
+                    { data: 'barang_bukti', name: 'barang_bukti' },
                     { data: 'actions', name: 'actions'},
                 ]
             });

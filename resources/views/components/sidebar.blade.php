@@ -72,6 +72,11 @@
               <div >Data Jaksa</div>
             </a>
           </li>
+          <li class="menu-item {{ request()->is('jenis-barang-bukti/*') || request()->is('jenis-barang-bukti') ? 'active':'' }}">
+            <a href="{{ route('jenis-barang-bukti.index') }}" class="menu-link text-white">
+              <div >Jenis Barang Bukti</div>
+            </a>
+          </li>
           <li class="menu-item {{ request()->is('barang-bukti/*') || request()->is('barang-bukti') ? 'active':'' }}">
             <a href="{{ route('barang-bukti.index') }}" class="menu-link text-white">
               <div >Data Barang Bukti</div>

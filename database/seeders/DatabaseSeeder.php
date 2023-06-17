@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Jaksa;
+use App\Models\JenisBarangBukti;
 use App\Models\Profile;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
@@ -46,6 +47,29 @@ class DatabaseSeeder extends Seeder
 
         Profile::create([
             'name_company'=>'Doktrin Adhyaksa',
+        ]);
+
+        JenisBarangBukti::insert([
+            [
+                'barang_bukti' => 'Barang',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'barang_bukti' => 'Rekaman',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'barang_bukti' => 'Dokumen',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'barang_bukti' => 'Bukti Saksi',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
         ]);
     }
 }

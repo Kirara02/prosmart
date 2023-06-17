@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama_terdakwa',50);
             $table->string('no_handphone',15);
             $table->text('alamat');
+            $table->string('jenis', 20);
             $table->string('ktp');
             $table->text('catatan');
             $table->timestamps();

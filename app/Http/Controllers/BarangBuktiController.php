@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\BarangBuktiRequest;
 use App\Models\BarangBukti;
 use App\Models\Jaksa;
+use App\Models\JenisBarangBukti;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -29,9 +30,9 @@ class BarangBuktiController extends Controller
         $title = 'Tambah Daftar Barang Bukti';
         $action = route('barang-bukti.store');
         $method = 'POST';
-        $jaksa = Jaksa::all();
-
-        return view('pages.barang_bukti.form', compact('title','action','method','barangBukti','jaksa'));
+        $jaksa = Jaksa::get();
+        $jenis = JenisBarangBukti::get();
+        return view('pages.barang_bukti.form', compact('title','action','method','barangBukti','jaksa','jenis'));
     }
 
     /**
@@ -69,9 +70,10 @@ class BarangBuktiController extends Controller
         $title = 'Tambah Daftar Barang Bukti';
         $action = route('barang-bukti.update', $barangBukti->id);
         $method = 'PUT';
-        $jaksa = Jaksa::all();
+        $jaksa = Jaksa::get();
+        $jenis = JenisBarangBukti::get();
 
-        return view('pages.barang_bukti.form', compact('title','action','method','barangBukti','jaksa'));
+        return view('pages.barang_bukti.form', compact('title','action','method','barangBukti','jaksa','jenis'));
     }
 
     /**

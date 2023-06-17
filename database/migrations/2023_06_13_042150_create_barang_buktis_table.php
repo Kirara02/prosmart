@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('no_reg', 25);
             $table->string('nama_terpidana', 50);
-            $table->string('jenis', 30);
             $table->string('no_tgl_putusan', 50);
             $table->enum('status',['publish','pending'])->default('pending');
             $table->foreignId('id_jaksa')->nullable()->constrained('jaksa');
+            $table->foreignId('id_jenis_barang_bukti')->nullable()->constrained('jenis_barang_bukti');
             $table->timestamps();
         });
     }

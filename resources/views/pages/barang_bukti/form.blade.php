@@ -48,15 +48,13 @@
                             @enderror
                           </div>
                           <div class="col-md-4">
-                            <label class="form-label" for="jenis_barang_bukti">Jenis Barang Bukti</label>
-                            <input
-                            value="{{ $barangBukti->jenis ?? old('jenis') }}"
-                                name="jenis"
-                              type="text"
-                              id="jenis_barang_bukti"
-                              class="form-control"
-                            />
-                            @error('jenis')
+                            <label class="form-label" for="id_jenis_barang_bukti">Jenis Barang Bukti</label>
+                            <select name="id_jenis_barang_bukti" id="id_jenis_barang_bukti" class="form-select">
+                                @foreach ($jenis as $item)
+                                    <option value="{{ $item->id }}">{{ $item->barang_bukti }}</option>
+                                @endforeach
+                            </select>
+                            @error('id_jenis_barang_bukti')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                           </div>

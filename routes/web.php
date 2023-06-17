@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\JaksaController;
+use App\Http\Controllers\JenisBarangBuktiController;
 use App\Http\Controllers\PengajuanBarangBuktiController;
 use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PhotoController;
@@ -52,6 +53,9 @@ Route::middleware('auth')->group(function(){
     // Jaksa Route
     Route::resource('/jaksa',JaksaController::class);
 
+    // Jenis Barang Bukti Route
+    Route::resource('/jenis-barang-bukti',JenisBarangBuktiController::class);
+
     // Informasi Barang Bukti Route
     Route::resource('/barang-bukti', BarangBuktiController::class);
 
@@ -70,6 +74,7 @@ Route::middleware('auth')->group(function(){
         Route::get('data/gallery','getGallery')->name('data.gallery');
         Route::get('data/pengaturan','getPengaturan')->name('data.pengaturan');
         Route::get('data/pengajuan','getPengajuan')->name('data.pengajuan');
+        Route::get('data/jenis','getJenis')->name('data.jenis');
     });
 });
 

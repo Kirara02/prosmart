@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\ApiBarangBuktiController;
 use App\Http\Controllers\API\ApiGalleryController;
 use App\Http\Controllers\API\ApiJaksaController;
+use App\Http\Controllers\API\ApiJenisBarangBuktiController;
 use App\Http\Controllers\API\ApiPengajuanController;
 use App\Http\Controllers\API\ApiPengaturanController;
 use App\Http\Controllers\API\ApiProfileController;
@@ -28,5 +29,6 @@ Route::get('profile',[ApiProfileController::class,'all']);
 Route::get('gallery',[ApiGalleryController::class,'all']);
 Route::get('terdakwa',[ApiBarangBuktiController::class,'terdakwa']);
 Route::get('barang-bukti',[ApiBarangBuktiController::class,'show']);
+Route::get('jenis-barang-bukti',[ApiJenisBarangBuktiController::class,'all']);
 Route::get('banner',[ApiPengaturanController::class,'all']);
 Route::post('pengajuan',[ApiPengajuanController::class,'post']);

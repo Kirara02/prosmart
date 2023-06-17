@@ -17,6 +17,7 @@
                       <th>Nama Terdakwa</th>
                       <th>No Hp/Wa</th>
                       <th>Alamat Lengkap</th>
+                      <th>Jenis</th>
                       <th>Catatan</th>
                       <th width="40px">Action</th>
                     </tr>

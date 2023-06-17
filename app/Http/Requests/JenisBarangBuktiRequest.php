@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BarangBuktiRequest extends FormRequest
+class JenisBarangBuktiRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +22,7 @@ class BarangBuktiRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'no_reg' => 'required|string',
-            'nama_terpidana' => 'required|string',
-            'id_jaksa' => 'required|exists:jaksa,id',
-            'id_jenis_barang_bukti' => 'required|exists:jenis_barang_bukti,id',
-            'no_tgl_putusan' => 'required|string',
-            'status' => 'required|string'
+            'barang_bukti' => 'required|string'
         ];
     }
 }

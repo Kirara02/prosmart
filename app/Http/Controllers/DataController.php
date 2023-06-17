@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Models\BarangBukti;
 use App\Models\Gallery;
 use App\Models\Jaksa;
+use App\Models\JenisBarangBukti;
 use App\Models\Pengaturan;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -30,7 +31,7 @@ class DataController extends Controller
     }
 
     public function getBarangBukti(){
-        $data = BarangBukti::with(['jaksa']);
+        $data = BarangBukti::with(['jaksa','jenis']);
 
         return DataTables::of($data)
         ->addIndexColumn()
@@ -106,6 +107,24 @@ class DataController extends Controller
             </form>';
         })
         ->rawColumns(['actions','tgl_pengajuan'])
+        ->make(true);
+    }
+
+    public function getJenis(){
+        $data = JenisBarangBukti::get();
+
+        return DataTables::of($data)
+        ->addIndexColumn()
+
+        ->addColumn('actions', function ($row) {
+            return '<a href="'.route('jenis-barang-bukti.edit', $row->id).'" class="btn btn-secondary border-0 text-dark"><i class="fa fa-pen "></i></a>'.
+            '<form id="form-delete" action="'.route('jenis-barang-bukti.destroy', $row->id).'" method="post" class="d-inline">
+            '.method_field('DELETE').'
+            '.csrf_field().'
+            <button type="submit" class="btn btn-danger border-0"><i class="fas fa-trash"></i></button>
+            </form>';
+        })
+        ->rawColumns(['actions'])
         ->make(true);
     }
 }
