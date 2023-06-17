@@ -64,7 +64,7 @@ class ApiPengajuanController extends Controller
 
             return ResponseFormatter::error(
                 null,
-                'Data gagal diupload'
+                'Data gagal diupload'.$th->getMessage(),
             );
         }
     }
