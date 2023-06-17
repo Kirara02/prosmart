@@ -8,6 +8,7 @@ use App\Models\BuktiGallery;
 use App\Models\Pengajuan;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class ApiPengajuanController extends Controller
@@ -15,7 +16,7 @@ class ApiPengajuanController extends Controller
     public function post(Request $request)
     {
         try {
-
+            DB::beginTransaction();
             $ktp = $request->file('ktp');
             $imgKtp = $ktp->storeAs('images/ktp', Str::slug($request->nama_pemohon) . '-' . Str::random(6) . '.' . $ktp->extension());
 
@@ -40,14 +41,15 @@ class ApiPengajuanController extends Controller
             }
 
             BuktiGallery::insert($insert);
-
             $result = Pengajuan::with(['gallery'])->find($data->id);
+            DB::commit();
 
             return ResponseFormatter::success(
                 $result,
                 'Data berhasil diupload'
             );
         } catch (\Throwable $th) {
+            DB::rollBack();
             return ResponseFormatter::error(
                 null,
                 'Data gagal di upload'
