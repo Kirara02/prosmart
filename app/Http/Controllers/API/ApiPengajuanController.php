@@ -17,9 +17,6 @@ class ApiPengajuanController extends Controller
 {
     public function post(Request $request)
     {
-        $request->validate([
-            ''
-        ]);
         try {
             DB::beginTransaction();
 
