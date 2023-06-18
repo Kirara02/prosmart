@@ -39,7 +39,7 @@ class ApiBarangBuktiController extends Controller
                 return ResponseFormatter::error(null, 'Data tidak ditemukan', 404);
             }
 
-            $data = BarangBukti::with(['jaksa'])->where('nama_terpidana', $terdakwa)
+            $data = BarangBukti::with(['jaksa','jenis'])->where('nama_terpidana', $terdakwa)
                 ->where('id_jaksa', $dataJaksa->id)
                 ->get();
 
