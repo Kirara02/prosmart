@@ -43,7 +43,7 @@ class ApiBarangBuktiController extends Controller
                 ->where('id_jaksa', $dataJaksa->id)
                 ->first();
 
-            if ($data->isEmpty()) {
+            if ($data == null) {
                 return ResponseFormatter::error(null, 'Data tidak ditemukan',404);
             }
 
