@@ -19,11 +19,11 @@ class DataController extends Controller
         return DataTables::of($data)
         ->addIndexColumn()
         ->addColumn('actions', function ($row) {
-            return '<a href="'.route('jaksa.edit', $row->id).'" class="btn btn-secondary border-0 text-dark"><i class="fa fa-pen "></i></a>'.
+            return '<a href="'.route('jaksa.edit', $row->id).'" class="btn btn-sm btn-outline-warning"><i class="fa fa-pen "></i></a>'.
             '<form id="form-delete" action="'.route('jaksa.destroy', $row->id).'" method="post" class="d-inline">
             '.method_field('DELETE').'
             '.csrf_field().'
-            <button type="submit" class="btn btn-danger border-0"><i class="fas fa-trash"></i></button>
+            <button type="submit" class="btn btn-sm btn-outline-warning"><i class="fas fa-trash"></i></button>
             </form>';
         })
         ->rawColumns(['actions'])
@@ -36,11 +36,11 @@ class DataController extends Controller
         return DataTables::of($data)
         ->addIndexColumn()
         ->addColumn('actions', function ($row) {
-            return '<a href="'.route('barang-bukti.edit', $row->id).'" class="btn btn-secondary border-0 text-dark"><i class="fa fa-pen "></i></a>'.
+            return '<a href="'.route('barang-bukti.edit', $row->id).'" class="btn btn-sm btn-outline-warning"><i class="fa fa-pen "></i></a>'.
             '<form id="form-delete" action="'.route('barang-bukti.destroy', $row->id).'" method="post" class="d-inline">
             '.method_field('DELETE').'
             '.csrf_field().'
-            <button type="submit" class="btn btn-danger border-0"><i class="fas fa-trash"></i></button>
+            <button type="submit" class="btn btn-sm btn-outline-warning"><i class="fas fa-trash"></i></button>
             </form>';
         })
         ->rawColumns(['actions'])
@@ -59,11 +59,11 @@ class DataController extends Controller
             return Carbon::parse($row->created_at)->format('l, d-m-Y');
         })
         ->addColumn('actions', function ($row) {
-            return '<a href="'.route('gallery.edit', $row->id).'" class="btn btn-secondary border-0 text-dark"><i class="fa fa-pen "></i></a>'.
+            return '<a href="'.route('gallery.edit', $row->id).'" class="btn btn-sm btn-outline-warning"><i class="fa fa-pen "></i></a>'.
             '<form id="form-delete" action="'.route('gallery.destroy', $row->id).'" method="post" class="d-inline">
             '.method_field('DELETE').'
             '.csrf_field().'
-            <button type="submit" class="btn btn-danger border-0"><i class="fas fa-trash"></i></button>
+            <button type="submit" class="btn btn-sm btn-outline-warning"><i class="fas fa-trash"></i></button>
             </form>';
         })
         ->rawColumns(['actions','image','created_at'])
@@ -79,11 +79,11 @@ class DataController extends Controller
             return '<a href="' . asset('storage/' . $row->img_url) . '">Lihat Gambar</a>';
         })
         ->addColumn('actions', function ($row) {
-            return '<a href="'.route('pengaturan.edit', $row->id).'" class="btn btn-secondary border-0 text-dark"><i class="fa fa-pen "></i></a>'.
+            return '<a href="'.route('pengaturan.edit', $row->id).'" class="btn btn-sm btn-outline-warning"><i class="fa fa-pen "></i></a>'.
             '<form id="form-delete" action="'.route('pengaturan.destroy', $row->id).'" method="post" class="d-inline">
             '.method_field('DELETE').'
             '.csrf_field().'
-            <button type="submit" class="btn btn-danger border-0"><i class="fas fa-trash"></i></button>
+            <button type="submit" class="btn btn-sm btn-outline-warning"><i class="fas fa-trash"></i></button>
             </form>';
         })
         ->rawColumns(['actions','img_url'])
@@ -99,11 +99,11 @@ class DataController extends Controller
             return Carbon::parse($row->tgl_pengajuan)->format('l, d-m-Y');
         })
         ->addColumn('actions', function ($row) {
-            return '<a href="'.route('pengajuan.show', $row->id).'" class="btn btn-secondary border-0 text-dark"><i class="fa fa-expand "></i></a>'.
+            return '<a href="'.route('pengajuan.show', $row->id).'" class="btn btn-sm btn-outline-warning"><i class="fa fa-expand "></i></a>'.
             '<form id="form-delete" action="'.route('pengajuan.destroy', $row->id).'" method="post" class="d-inline">
             '.method_field('DELETE').'
             '.csrf_field().'
-            <button type="submit" class="btn btn-danger border-0"><i class="fas fa-trash"></i></button>
+            <button type="submit" class="btn btn-sm btn-outline-warning"><i class="fas fa-trash"></i></button>
             </form>';
         })
         ->rawColumns(['actions','tgl_pengajuan'])
@@ -117,11 +117,11 @@ class DataController extends Controller
         ->addIndexColumn()
 
         ->addColumn('actions', function ($row) {
-            return '<a href="'.route('jenis-barang-bukti.edit', $row->id).'" class="btn btn-secondary border-0 text-dark"><i class="fa fa-pen "></i></a>'.
+            return '<a href="'.route('jenis-barang-bukti.edit', $row->id).'" class="btn btn-sm btn-outline-warning"><i class="fa fa-pen "></i></a>'.
             '<form id="form-delete" action="'.route('jenis-barang-bukti.destroy', $row->id).'" method="post" class="d-inline">
             '.method_field('DELETE').'
             '.csrf_field().'
-            <button type="submit" class="btn btn-danger border-0"><i class="fas fa-trash"></i></button>
+            <button type="submit" class="btn btn-sm btn-outline-warning"><i class="fas fa-trash"></i></button>
             </form>';
         })
         ->rawColumns(['actions'])

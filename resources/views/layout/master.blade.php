@@ -97,14 +97,13 @@
     <!-- Page JS -->
     <script src="{{ asset('/') }}assets/js/form-layouts.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         $(document).ready(function () {
             $('#table-jaksa').DataTable({
                 processing: true,
                 serverSide: true,
-                responsive: true,
-                autoWidth: true,
                 lengthMenu: [
                     [20, 50, 100, -1],
                     [20, 50, 100, "All"]
@@ -120,8 +119,6 @@
             $('#table-barang-bukti').DataTable({
                 processing: true,
                 serverSide: true,
-                responsive: true,
-                autoWidth: true,
                 lengthMenu: [
                     [20, 50, 100, -1],
                     [20, 50, 100, "All"]
@@ -142,8 +139,6 @@
             $('#table-gallery').DataTable({
                 processing: true,
                 serverSide: true,
-                responsive: true,
-                autoWidth: true,
                 lengthMenu: [
                     [20, 50, 100, -1],
                     [20, 50, 100, "All"]
@@ -161,8 +156,6 @@
             $('#table-pengaturan').DataTable({
                 processing: true,
                 serverSide: true,
-                responsive: true,
-                autoWidth: true,
                 lengthMenu: [
                     [20, 50, 100, -1],
                     [20, 50, 100, "All"]
@@ -179,8 +172,6 @@
             $('#table-pengajuan').DataTable({
                 processing: true,
                 serverSide: true,
-                responsive: true,
-                autoWidth: true,
                 lengthMenu: [
                     [20, 50, 100, -1],
                     [20, 50, 100, "All"]
@@ -202,8 +193,6 @@
             $('#table-jenis').DataTable({
                 processing: true,
                 serverSide: true,
-                responsive: true,
-                autoWidth: true,
                 lengthMenu: [
                     [20, 50, 100, -1],
                     [20, 50, 100, "All"]
@@ -221,6 +210,40 @@
                 height: 300, // Adjust the height as needed
                 plugins: 'advlist autolink lists link image imagetools charmap print preview',
                 toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            });
+
+            $(".table").on('click', '.btn-delete', function(e) {
+            e.preventDefault();
+
+                Swal.fire({
+                    title: 'Hapus data?',
+                    text: "Hapus data bersifat permanen!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, Hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $(this).parent().submit()
+                    }
+                })
+            });
+
+            $(".logout").on('click', function() {
+                Swal.fire({
+                    title: 'Logout?',
+                    text: "Anda akan logout!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, Logout!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $("#logout-form").submit()
+                    }
+                })
             });
 
 

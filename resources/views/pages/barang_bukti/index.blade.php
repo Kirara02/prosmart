@@ -4,46 +4,25 @@
     <div class="col-xx">
         <div class="card mb-4">
           <div class="card-body">
-            <div class="d-flex justify-content-end mb-3 ">
-                <a href="{{ route('barang-bukti.create') }}" class="btn btn-primary shadow-none"><i class="fa fa-plus-circle text-white me-2"></i>Tambah Data</a>
+            <div class="d-flex bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                    <a href="{{ route('barang-bukti.create') }}" class="btn btn-primary shadow-none"><i class="fa fa-plus-circle text-white me-2"></i>Tambah Data</a>
+                </div>
             </div>
-            <div class="card-datatable table-responsive text-nowrap mt-2">
+            <div class="card-datatable table-responsive pt-0">
                 <table id="table-barang-bukti" class=" table">
                   <thead>
                     <tr>
-                      <th width="30px">No</th>
+                      <th>No</th>
                       <th>No Reg Barang Bukti</th>
                       <th>Nama Terpidana</th>
                       <th>Nama Jaksa</th>
                       <th>Jenis Barang Bukti</th>
                       <th>No dan Tanggal Keputusan</th>
                       <th>Status</th>
-                      <th width="40px">Action</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
-                  {{-- <tbody>
-                    @foreach ($items as $item)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->no_reg }}</td>
-                            <td>{{ $item->nama_terpidana }}</td>
-                            <td>{{ $item->jaksa->nama_jaksa }}</td>
-                            <td>{{ $item->jenis }}</td>
-                            <td>{{ $item->no_tgl_putusan }}</td>
-                            <td>{{ $item->status }}</td>
-                            <td class="text-center">
-                                <a href="{{ route('barang-bukti.edit', $item->id) }}" class="btn btn-secondary border-0 text-dark">
-                                    <i class="fa fa-pen "></i>
-                                </a>
-                                <form id="form-delete" action="{{ route('barang-bukti.destroy',$item->id) }}" method="post" class="d-inline">
-                                    @method('delete')
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger border-0"><i class="fas fa-trash"></i></button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                  </tbody> --}}
                 </table>
               </div>
           </div>

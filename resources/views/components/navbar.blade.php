@@ -43,11 +43,11 @@
                     <div class="dropdown-divider"></div>
                 </li>
                 <li>
-                    <form action="{{ route('logout') }}" method="POST">
+                    <form action="{{ route('logout') }}" method="POST" id="logout-form">
                         @csrf
                         <div class="dropdown-item">
                         <i class="ti ti-logout me-2 ti-sm"></i>
-                        <button type="submit" class="btn align-middle">Log Out</button>
+                        <button type="button" class="btn align-middle logout">Log Out</button>
                     </form>
                     </a>
                 </li>
