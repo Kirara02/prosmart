@@ -23,7 +23,7 @@ class DataController extends Controller
             '<form id="form-delete" action="'.route('jaksa.destroy', $row->id).'" method="post" class="d-inline">
             '.method_field('DELETE').'
             '.csrf_field().'
-            <button type="submit" class="btn btn-sm btn-outline-warning"><i class="fas fa-trash"></i></button>
+            <button type="button" class="btn btn-sm btn-outline-warning btn-delete"><i class="fas fa-trash"></i></button>
             </form>';
         })
         ->rawColumns(['actions'])
@@ -40,7 +40,7 @@ class DataController extends Controller
             '<form id="form-delete" action="'.route('barang-bukti.destroy', $row->id).'" method="post" class="d-inline">
             '.method_field('DELETE').'
             '.csrf_field().'
-            <button type="submit" class="btn btn-sm btn-outline-warning"><i class="fas fa-trash"></i></button>
+            <button type="button" class="btn btn-sm btn-outline-warning btn-delete"><i class="fas fa-trash"></i></button>
             </form>';
         })
         ->rawColumns(['actions'])
@@ -63,7 +63,7 @@ class DataController extends Controller
             '<form id="form-delete" action="'.route('gallery.destroy', $row->id).'" method="post" class="d-inline">
             '.method_field('DELETE').'
             '.csrf_field().'
-            <button type="submit" class="btn btn-sm btn-outline-warning"><i class="fas fa-trash"></i></button>
+            <button type="button" class="btn btn-sm btn-outline-warning btn-delete"><i class="fas fa-trash"></i></button>
             </form>';
         })
         ->rawColumns(['actions','image','created_at'])
@@ -83,7 +83,7 @@ class DataController extends Controller
             '<form id="form-delete" action="'.route('pengaturan.destroy', $row->id).'" method="post" class="d-inline">
             '.method_field('DELETE').'
             '.csrf_field().'
-            <button type="submit" class="btn btn-sm btn-outline-warning"><i class="fas fa-trash"></i></button>
+            <button type="button" class="btn btn-sm btn-outline-warning btn-delete"><i class="fas fa-trash"></i></button>
             </form>';
         })
         ->rawColumns(['actions','img_url'])
@@ -103,7 +103,7 @@ class DataController extends Controller
             '<form id="form-delete" action="'.route('pengajuan.destroy', $row->id).'" method="post" class="d-inline">
             '.method_field('DELETE').'
             '.csrf_field().'
-            <button type="submit" class="btn btn-sm btn-outline-warning"><i class="fas fa-trash"></i></button>
+            <button type="button" class="btn btn-sm btn-outline-warning btn-delete"><i class="fas fa-trash"></i></button>
             </form>';
         })
         ->rawColumns(['actions','tgl_pengajuan'])
@@ -121,7 +121,7 @@ class DataController extends Controller
             '<form id="form-delete" action="'.route('jenis-barang-bukti.destroy', $row->id).'" method="post" class="d-inline">
             '.method_field('DELETE').'
             '.csrf_field().'
-            <button type="submit" class="btn btn-sm btn-outline-warning"><i class="fas fa-trash"></i></button>
+            <button type="button" class="btn btn-sm btn-outline-warning btn-delete"><i class="fas fa-trash"></i></button>
             </form>';
         })
         ->rawColumns(['actions'])
