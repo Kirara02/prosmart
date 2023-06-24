@@ -43,6 +43,14 @@ class ApiPengajuanController extends Controller
                 $insert[$key]['updated_at'] = Carbon::now();
             }
 
+            BuktiGallery::insert($insert); foreach ($bukti as $key=>$image) {
+                $imgBukti = $image->storeAs('images/bukti-kepemilikan', Str::slug($request->nama_pemohon) . '-' . Str::random(6) . '.' . $image->extension());
+                $insert[$key]['id_pengajuan'] = $data->id;
+                $insert[$key]['image'] = $imgBukti;
+                $insert[$key]['created_at'] = Carbon::now();
+                $insert[$key]['updated_at'] = Carbon::now();
+            }
+
             BuktiGallery::insert($insert);
             $result = Pengajuan::with(['gallery'])->find($data->id);
 

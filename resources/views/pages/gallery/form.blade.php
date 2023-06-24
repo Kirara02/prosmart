@@ -9,7 +9,7 @@
                 @csrf
                 <div class="col-md-9 mb-3">
                     <label class="form-label" for="image">Upload Image Thumbnail</label>
-                    <input type="file" id="image" class="form-control" name="image" value="{{ $gallery->image ?? old('image') }}"/>
+                    <input type="file" id="image" class="form-control" name="image[]" value="{{ $gallery->image ?? old('image') }}" multiple/>
                     @error('image')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror

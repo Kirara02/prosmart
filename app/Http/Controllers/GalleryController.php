@@ -43,13 +43,15 @@ class GalleryController extends Controller
             DB::beginTransaction();
 
             $image = $request->file('image');
-            $imageUrl = $image->storeAs('images/gallery', date('YmdHis') . '-' . Str::slug($request->judul) . '.' . $image->extension());
-
-            Gallery::create([
+            foreach ($image as $item) {
+                $imgUrl = $item->storeAs('images/gallery', Str::slug($request->judul) . '-' . Str::random(6). '.' . $item->extension());
+                Gallery::create([
                 'judul' => $request->judul,
                 'deskripsi' => $request->deskripsi,
-                'image' => $imageUrl,
-            ]);
+                'image' => $imgUrl,
+                ]);
+
+            }
 
             DB::commit();
 

@@ -24,7 +24,7 @@ class GalleryRequest extends FormRequest
         return [
             'judul' => 'required|string',
             'deskripsi' =>'required|string',
-            'image' => 'image|mimes:jpeg,png,jpg|max:5120'
+            'image.*' => 'image|mimes:jpeg,png,jpg|max:5120'
         ];
     }
 }
