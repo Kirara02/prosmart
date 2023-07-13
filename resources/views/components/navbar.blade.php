@@ -16,6 +16,26 @@
                 <input type="text" class="form-control" placeholder="search fitur">
             </li>
 
+
+            <!-- Notification2-->
+            <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                  <i class="menu-icon tf-icons ti ti-bell" id="countNotif"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-media dropdown-menu-end" style="width: 300px; max-height: 400px; overflow-y: auto;">
+                  <li class="dropdown-menu-header">
+                    <div class="dropdown-header d-flex">
+                      <h4 class="notification-title mb-0 me-auto">Notifications</h4>
+                      <div class="badge rounded-pill badge-light-primary">6 New</div>
+                    </div>
+                  </li>
+                  <ul id="notif-all">
+
+                  </ul>
+                </ul>
+              </li>
+             <!-- /Notification2-->
+
             <!-- User -->
             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
@@ -29,11 +49,11 @@
                     <div class="d-flex">
                         <div class="flex-shrink-0 me-3">
                         <div class="avatar avatar-online">
-                            <img src="{{ asset('/') }}assets/logo/logo_prosmart_kotak.png" alt class="h-auto rounded-circle" />
+                            <img src="{{ asset('/') }}assets/logo/logo_prosmart_kotak.png" alt class="h-auto rounded-circle"/>
                         </div>
                         </div>
                         <div class="flex-grow-1">
-                        <span class="fw-semibold d-block">Administrator</span>
+                        <span class="fw-semibold d-block">Administrator </span>
                         <small class="text-muted">admin</small>
                         </div>
                     </div>
@@ -57,3 +77,4 @@
         </ul>
     </div>
 </nav>
+

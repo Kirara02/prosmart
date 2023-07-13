@@ -7,6 +7,7 @@ use App\Http\Controllers\DataController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\JaksaController;
 use App\Http\Controllers\JenisBarangBuktiController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PengajuanBarangBuktiController;
 use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PhotoController;
@@ -76,5 +77,9 @@ Route::middleware('auth')->group(function(){
         Route::get('data/pengajuan','getPengajuan')->name('data.pengajuan');
         Route::get('data/jenis','getJenis')->name('data.jenis');
     });
-});
 
+    Route::prefix('notif')->group(function () {
+        Route::get("all", [NotificationController::class, 'all'])->name('notif.all');
+        Route::get("{id}", [NotificationController::class, 'read'])->name('notif.read');
+    });
+});

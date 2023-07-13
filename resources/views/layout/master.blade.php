@@ -99,6 +99,37 @@
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css">
+
+    <!-- DataTables Buttons CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.0/css/buttons.dataTables.min.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+
+    <!-- DataTables Buttons JS -->
+    <script src="https://cdn.datatables.net/buttons/2.0.0/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.print.min.js"></script>
+
+    <!-- JSZip -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+    <!-- pdfmake -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/vfs_fonts.js"></script>
+
+   <!-- Include Bootstrap Tags Input CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
+
+    <!-- Include Bootstrap Tags Input JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+
+
     <script>
         $(document).ready(function () {
             $('#table-jaksa').DataTable({
@@ -113,28 +144,45 @@
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: true },
                     { data: 'nama_jaksa', name: 'nama_jaksa' },
                     { data: 'actions', name: 'actions'}
-                ]
+                ],
+                dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
             });
 
             $('#table-barang-bukti').DataTable({
-                processing: true,
-                serverSide: true,
-                lengthMenu: [
-                    [20, 50, 100, -1],
-                    [20, 50, 100, "All"]
-                ],
-                ajax: "{{ route('data.barang-bukti') }}",
-                columns: [
-                    { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
-                    { data: 'no_reg', name: 'no_reg' },
-                    { data: 'nama_terpidana', name: 'nama_terpidana' },
-                    { data: 'jaksa.nama_jaksa', name: 'jaksa.nama_jaksa' },
-                    { data: 'jenis.barang_bukti', name: 'jenis.barang_bukti' },
-                    { data: 'no_tgl_putusan', name: 'no_tgl_putusan' },
-                    { data: 'status', name: 'status' },
-                    { data: 'actions', name: 'actions'}
-                ]
-            });
+            processing: true,
+            serverSide: true,
+            lengthMenu: [
+                [20, 50, 100, -1],
+                [20, 50, 100, "All"]
+            ],
+            ajax: "{{ route('data.barang-bukti') }}",
+            columns: [
+                { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
+                { data: 'no_reg', name: 'no_reg' },
+                { data: 'nama_terpidana', name: 'nama_terpidana' },
+                { data: 'jaksa.nama_jaksa', name: 'jaksa.nama_jaksa' },
+                { data: 'jenis.barang_bukti', name: 'jenis.barang_bukti' },
+                { data: 'no_tgl_putusan', name: 'no_tgl_putusan' },
+                { data: 'status', name: 'status' },
+                {data: 'status_barang', name: 'status_barang',
+                render : function(data, type, row){
+                if (row.status_barang == '1') {
+                    return "<span class='badge bg-danger bg-glow'>Belum Diambil</span>";
+                }else if (row.status_barang == '2') {
+                    return "<span class='badge bg-warning bg-glow'>Sudah Diambil</span>";
+                }
+            }
+        },
+                { data: 'actions', name: 'actions'}
+            ],
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
 
             $('#table-gallery').DataTable({
                 processing: true,
@@ -150,7 +198,11 @@
                     { data: 'image', name: 'image' },
                     { data: 'created_at', name: 'created_at' },
                     { data: 'actions', name: 'actions'}
-                ]
+                ],
+                dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
             });
 
             $('#table-pengaturan').DataTable({
@@ -187,7 +239,11 @@
                     { data: 'jenis', name: 'jenis'},
                     { data: 'catatan', name: 'catatan'},
                     { data: 'actions', name: 'actions'},
-                ]
+                ],
+                dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
             });
 
             $('#table-jenis').DataTable({
@@ -202,7 +258,11 @@
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                     { data: 'barang_bukti', name: 'barang_bukti' },
                     { data: 'actions', name: 'actions'},
-                ]
+                ],
+                dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
             });
 
             tinymce.init({
@@ -246,9 +306,62 @@
                 })
             });
 
-
         });
     </script>
+
+    <script>
+        $(document).ready(function() {
+        var notif = $('#notif-unread').data('id');
+        $.ajax({
+            url: "{{ route('notif.all') }}",
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+            for (var i = 0; i < data.length; i++) {
+                var notif = data[i];
+                var html = '' +
+                '<li>' +
+                '    <a href="#">' +
+                '        <div class="media notification-item" id="notif-unread" data-idnotif="' + notif.id + '" onclick="readNotif(' + notif.id + ',\''+notif.links+'\', this)">' +
+                '            <div class="notification-img bg-light-success"></div>' +
+                '            <div class="media-body">' +
+                '                <h6 class="notification-label font-success">Pengajuan Baru</h6>' +
+                '                <p>Terdapat Pengajuan Baru yang harus di verifikasi</p>' +
+                '                <span class="notification-time">' + notif.data + '</span>' +
+                '            </div>' +
+                '            <div class="notification-right"><a href="#"><i data-feather="x"></i></a></div>' +
+                '        </div>' +
+                '    </a>' +
+                '</li>';
+                $('#notif-all').prepend(html);
+            }
+            $('#countNotif').html(data.length);
+            }
+        });
+        });
+
+        function readNotif(id_notif, links, element) {
+        $.ajax({
+            url: "{{ url('') }}/notif/" + id_notif,
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+            $(element).closest('li').remove();
+            var count = parseInt($('#countNotif').html()) - 1;
+            $('#countNotif').html(count);
+            window.location.href = links;
+            }
+        });
+        }
+    </script>
+
+
+    <style>
+    .bootstrap-tagsinput .tag {
+        background-color: #007bff;
+        color: #ffffff;
+      }
+      </style>
 
 
 

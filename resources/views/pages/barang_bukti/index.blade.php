@@ -20,6 +20,7 @@
                       <th>Jenis Barang Bukti</th>
                       <th>No dan Tanggal Keputusan</th>
                       <th>Status</th>
+                      <th>Status Barang</th>
                       <th>Action</th>
                     </tr>
                   </thead>

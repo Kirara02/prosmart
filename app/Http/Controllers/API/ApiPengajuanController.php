@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
 use App\Models\BuktiGallery;
+use App\Models\Notification;
 use App\Models\Pengajuan;
 use Carbon\Carbon;
 use Illuminate\Contracts\Cache\Store;
@@ -31,8 +32,11 @@ class ApiPengajuanController extends Controller
                 'alamat' => $request->alamat,
                 'jenis' => $request->jenis,
                 'ktp' => $imgKtp,
-                'catatan' => $request->catatan
+                'catatan' => $request->catatan,
+                'tgl_pengajuan' => $request->tgl_pengajuan
             ]);
+
+
 
             $bukti = $request->file('bukti');
             foreach ($bukti as $key=>$image) {
@@ -49,6 +53,15 @@ class ApiPengajuanController extends Controller
                 $insert[$key]['image'] = $imgBukti;
                 $insert[$key]['created_at'] = Carbon::now();
                 $insert[$key]['updated_at'] = Carbon::now();
+            }
+            if ($data->save()) {
+                $notification = Notification::create([
+                    'type' => 'Pengajuan Baru',
+                    'data' => $request->nama_pemohon,
+                    'read' => 0,
+                    'links' => route('pengajuan.index')
+
+                ]);
             }
 
             BuktiGallery::insert($insert);

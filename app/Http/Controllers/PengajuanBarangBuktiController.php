@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BuktiGallery;
+use App\Models\Notification;
 use App\Models\Pengajuan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -36,7 +37,7 @@ class PengajuanBarangBuktiController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $condition)
     {
         $request->validate([
             'nama_pemohon' => 'required|string',
@@ -60,6 +61,14 @@ class PengajuanBarangBuktiController extends Controller
             'ktp' => $imgKtp,
             'catatan' => $request->catatan
         ]);
+
+        if($condition == 'create'){
+            $notification = Notification::create([
+                'type' => 'Pengajuan Baru',
+                'data' => $request->nama_pemohon,
+                'read' => 0
+            ]);
+        }
 
         $kepemilikan = $request->file('kepemilikan');
         foreach ($kepemilikan as $image) {

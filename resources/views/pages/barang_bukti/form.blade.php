@@ -31,6 +31,7 @@
                               type="text"
                               id="nama_terpidana"
                               class="form-control"
+                              data-role="tagsinput"
                             />
                             @error('nama_terpidana')
                                 <small class="text-danger">{{ $message }}</small>
@@ -63,6 +64,16 @@
                             <input
                             value="{{ $barangBukti->no_tgl_putusan ?? old('no_tgl_putusan') }}" name="no_tgl_putusan" type="text" id="no_tgl" class="form-control"/>
                             @error('no_tgl_putusan')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                          </div>
+                          <div class="col-md-4">
+                            <label class="form-label" for="no_tgl">Status Barang</label>
+                            <select  name="status_barang" id="status_barang" class="form-select">
+                                <option value="1">Belum Diambil</option>
+                                <option value="2">Sudah Diambil</option>
+                              </select>
+                            @error('status_barang')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                           </div>
